@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int main() {
+    // your code goes here
+    int n;
+
+    if (scanf("%d", & n) != 1 || n == 0) {
+        printf("invalid input\n");
+        return 1;
+    }
+    int a[n];
+    for (int i = 0; i < n; i++) {
+
+        scanf("%d", & a[i]);
+    }
+    printf("traversa\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }
+    int f;
+    scanf("%d\n", & f);
+    for (int i = 0; i < n; i++) {
+        if (a[i] == f) {
+            printf("no found at index = %d\n", i);
+        }
+    }
+    int max = 0, min = 0;
+    for (int i = 1; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        } else if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    printf("max: %d, min: %d\n", max, min);
+    int bl = n-2;
+    int p;
+    scanf("%d\n", & p);
+    int b;
+    scanf("%d\n", & b);
+    printf("insertion\n");
+    for (int i = bl; i >= b; i--) {
+        a[i + 1] = a[i];
+    }
+    a[b] = p;
+    bl--;
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }
+    printf("deletion\n");
+    int r;
+    scanf("%d\n", & r);
+    for (int i = r; i < n; i++) {
+        a[i] = a[i + 1];
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }
+    int sum = 0;
+    for(int i = 0; i<n; i++){
+	    sum+=a[i];
+	}
+	printf("sum of array is: %d", sum);
+
+
+
+}
